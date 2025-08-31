@@ -1,6 +1,6 @@
 # Task Manager App
 
-A full-stack Task Manager application built with React frontend and Express.js backend, featuring CRUD operations, task filtering, priority management, and an endless carousel display.
+A fustack Task Manager application built with React frontend and Express.js backend, featuring CRUD operations, task filtering, priority management, and an endless carousel display.
 
 ## Project Structure
 
@@ -123,82 +123,6 @@ http://localhost:4000/api
 | PATCH | `/tasks/:id/toggle` | Toggle task completion | None |
 | GET | `/health` | Health check | None |
 
-### Task Model
-```javascript
-{
-  id: number,
-  title: string,
-  description: string,
-  completed: boolean,
-  createdAt: Date,
-  priority: 'low' | 'medium' | 'high'
-}
-```
-
-### Request Examples
-
-#### Create Task
-```bash
-POST /api/tasks
-Content-Type: application/json
-
-{
-  "title": "Complete project",
-  "description": "Finish the task manager application",
-  "priority": "high"
-}
-```
-
-#### Update Task
-```bash
-PUT /api/tasks/1
-Content-Type: application/json
-
-{
-  "title": "Updated task title",
-  "completed": true
-}
-```
-
-## Features
-
-### Core Functionality
-- ✅ **CRUD Operations**: Create, read, update, and delete tasks
-- ✅ **Task Status**: Toggle task completion status
-- ✅ **Priority Levels**: Set task priority (Low, Medium, High) with color coding
-- ✅ **Filtering**: Filter tasks by completion status (All, Completed, Pending)
-- ✅ **Form Validation**: Client-side validation for task creation/editing
-- ✅ **Responsive Design**: Mobile-friendly interface
-
-### UI/UX Features
-- 🎨 **Modern Design**: Clean, gradient-based UI with smooth animations
-- 🎠 **Task Display**: Grid-based layout with card design
-- 🎯 **Priority Indicators**: Color-coded badges (Red=High, Orange=Medium, Green=Low)
-- ⚡ **Smooth Transitions**: Hover effects and animations
-- 📱 **Mobile Responsive**: Optimized for all screen sizes
-
-### Technical Features
-- 🔄 **Real-time Updates**: Instant updates across the application
-- 🛡️ **Error Handling**: Comprehensive error handling and user feedback
-- 🎯 **Loading States**: Visual feedback during operations
-- 🔍 **Input Validation**: Both frontend and backend validation
-
-## Tech Stack
-
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **CORS** - Cross-origin resource sharing
-- **ESLint** - Code linting
-- **In-memory storage** - Array-based data storage
-
-### Frontend
-- **React 19** - Frontend framework with modern hooks
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API requests
-- **CSS Modules** - Scoped component styling
-- **Vite** - Build tool and development server
-- **ESLint** - Code linting
 
 ## Design Decisions and Assumptions
 
@@ -225,60 +149,10 @@ Content-Type: application/json
 
 ## Time Spent on Each Part
 
-### Backend Development (~90 minutes)
-- **Project Setup**: 15 minutes
-- **API Endpoints**: 30 minutes
-- **Middleware Implementation**: 20 minutes
-- **Error Handling & Validation**: 15 minutes
-- **Testing & Debugging**: 10 minutes
+### Backend Development (120 minutes)
+### Frontend Development (90 minutes)
+### Styling & Polish (30 minutes)
 
-### Frontend Development (~120 minutes)
-- **Project Setup & Routing**: 20 minutes
-- **Component Architecture**: 30 minutes
-- **State Management (Context)**: 25 minutes
-- **API Integration**: 20 minutes
-- **Form Handling**: 15 minutes
-- **Testing & Bug Fixes**: 10 minutes
 
-### Styling & Polish (~30 minutes)
-- **CSS Design System**: 15 minutes
-- **Responsive Design**: 10 minutes
-- **Animations & Transitions**: 5 minutes
+### Total Time: 4 hours
 
-### Total Time: ~4 hours
-
-## Scripts
-
-### Backend Commands
-```bash
-npm start          # Start server with linting
-npm run lint       # Run ESLint only
-```
-
-### Frontend Commands
-```bash
-npm start          # Start development server with linting
-npm run dev        # Alternative start command
-npm run build      # Build for production
-npm run preview    # Preview production build
-npm run lint       # Run ESLint only
-```
-
-## Development Notes
-
-### Known Limitations
-1. **Data Persistence**: Data is stored in memory and lost on server restart
-2. **Single Instance**: No support for multiple server instances
-3. **No Authentication**: No user management or security features
-4. **Basic Validation**: Minimal input validation implementation
-
-### Future Enhancements
-1. **Database Integration**: Add PostgreSQL or MongoDB
-2. **User Authentication**: Implement user accounts and sessions
-3. **Real-time Updates**: Add WebSocket support
-4. **Search Functionality**: Add task search capabilities
-5. **Drag & Drop**: Implement task reordering
-
-## License
-
-This project is licensed under the ISC License.
