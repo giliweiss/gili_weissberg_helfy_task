@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTask } from '../../context/TaskContext';
 import TaskForm from '../TaskForm/TaskForm';
 import styles from './TaskItem.module.css';
@@ -71,14 +71,14 @@ const TaskItem = ({ task }) => {
             onClick={() => setIsEditing(true)}
             aria-label="Edit task"
           >
-            ✏️
+            edit
           </button>
           <button
             className={styles.deleteButton}
             onClick={() => setShowDeleteConfirm(true)}
             aria-label="Delete task"
           >
-            🗑️
+            delete
           </button>
         </div>
       </div>
@@ -115,7 +115,7 @@ const TaskItem = ({ task }) => {
         <div className={styles.modal}>
           <div className={styles.modalContent}>
             <h4>Delete Task</h4>
-            <p>Are you sure you want to delete "{task.title}"?</p>
+            <p>Are you sure you want to delete &quot;{task.title}&quot;?</p>
             <div className={styles.modalActions}>
               <button
                 className={styles.cancelButton}

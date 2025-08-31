@@ -1,32 +1,130 @@
-/* TODO: Add home page layout styles */
+/* Home Page Styles */
 .homePage {
-  /* TODO: Implement home page container styles */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
 }
 
 .header {
-  /* TODO: Implement header section styles */
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
 }
 
 .title {
-  /* TODO: Implement main title styles */
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ffffff, #f0f8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
-  /* TODO: Implement subtitle styles */
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .addTaskButton {
-  /* TODO: Implement add task button styles */
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
+  margin: 20px 0;
+}
+
+.addTaskButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(39, 174, 96, 0.4);
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.addTaskButton:active {
+  transform: translateY(-1px);
 }
 
 .formSection {
-  /* TODO: Implement form section styles */
+  margin-bottom: 40px;
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .filterSection {
-  /* TODO: Implement filter section styles */
+  margin-bottom: 30px;
+  animation: slideUp 0.5s ease-out 0.2s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .tasksSection {
-  /* TODO: Implement tasks section styles */
+  animation: slideUp 0.5s ease-out 0.4s both;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .homePage {
+    padding: 30px 16px;
+  }
+  
+  .title {
+    font-size: 36px;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+  }
+  
+  .addTaskButton {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homePage {
+    padding: 20px 12px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+  }
+  
+  .addTaskButton {
+    width: 100%;
+    max-width: 300px;
+  }
 }

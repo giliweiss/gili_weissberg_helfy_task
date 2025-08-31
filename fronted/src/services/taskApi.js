@@ -17,6 +17,7 @@ export const taskApi = {
       const response = await api.get('/tasks');
       return response.data;
     } catch (error) {
+      console.error('Error fetching tasks:', error);
       throw new Error('Failed to fetch tasks');
     }
   },
@@ -27,6 +28,7 @@ export const taskApi = {
       const response = await api.post('/tasks', taskData);
       return response.data;
     } catch (error) {
+      console.error('Error creating task:', error);
       throw new Error('Failed to create task');
     }
   },
@@ -37,6 +39,7 @@ export const taskApi = {
       const response = await api.put(`/tasks/${id}`, updates);
       return response.data;
     } catch (error) {
+      console.error('Error updating task:', error);
       throw new Error('Failed to update task');
     }
   },
@@ -46,6 +49,7 @@ export const taskApi = {
     try {
       await api.delete(`/tasks/${id}`);
     } catch (error) {
+      console.error('Error deleting task:', error);
       throw new Error('Failed to delete task');
     }
   },
@@ -56,6 +60,7 @@ export const taskApi = {
       const response = await api.patch(`/tasks/${id}/toggle`);
       return response.data;
     } catch (error) {
+      console.error('Error toggling task:', error);
       throw new Error('Failed to toggle task');
     }
   },

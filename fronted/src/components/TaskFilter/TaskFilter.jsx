@@ -1,4 +1,4 @@
-import React from 'react';
+// React import removed - not needed in modern React
 import { useTask } from '../../context/TaskContext';
 import styles from './TaskFilter.module.css';
 

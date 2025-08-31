@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router'
 import HomePage from './pages/HomePage/HomePage';
 import styles from './styles/App.module.css';
+import './styles/global.css';
 
 function App() {
   return (
@@ -9,7 +10,6 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* TODO: Add additional routes as needed */}
           </Routes>
         </main>
       </div>

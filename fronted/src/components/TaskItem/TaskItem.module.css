@@ -1,98 +1,290 @@
-/* TODO: Add task item styles */
+/* Task Item Styles */
 .taskItem {
-  /* TODO: Implement task item container styles */
+  background: white;
+  border-radius: 16px;
+  border: 2px solid #e8e8e8;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.taskItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: #3498db;
 }
 
 .taskItem.completed {
-  /* TODO: Implement completed task styles */
+  background: #f8f9fa;
+  border-color: #27ae60;
+  opacity: 0.8;
 }
 
 .taskHeader {
-  /* TODO: Implement task header styles */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .priorityBadge {
-  /* TODO: Implement priority badge base styles */
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .priorityHigh {
-  /* TODO: Implement high priority styles */
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: 1px solid #c0392b;
 }
 
 .priorityMedium {
-  /* TODO: Implement medium priority styles */
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  border: 1px solid #e67e22;
+  color: #2c3e50;
+  text-shadow: none;
 }
 
 .priorityLow {
-  /* TODO: Implement low priority styles */
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  border: 1px solid #27ae60;
 }
 
 .taskActions {
-  /* TODO: Implement task actions container styles */
+  display: flex;
+  gap: 12px;
 }
 
 .editButton,
 .deleteButton {
-  /* TODO: Implement action button styles */
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.editButton:hover {
+  background: rgba(52, 152, 219, 0.1);
+  transform: scale(1.1);
+}
+
+.deleteButton:hover {
+  background: rgba(231, 76, 60, 0.1);
+  transform: scale(1.1);
 }
 
 .taskContent {
-  /* TODO: Implement task content area styles */
+  flex: 1;
+  margin-bottom: 20px;
 }
 
 .taskTitle {
-  /* TODO: Implement task title styles */
+  font-size: 22px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.completed .taskTitle {
+  text-decoration: line-through;
+  color: #7f8c8d;
 }
 
 .taskDescription {
-  /* TODO: Implement task description styles */
+  color: #5a6c7d;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 16px;
+}
+
+.completed .taskDescription {
+  text-decoration: line-through;
+  color: #95a5a6;
 }
 
 .taskFooter {
-  /* TODO: Implement task footer styles */
+  margin-top: auto;
+  border-top: 1px solid #ecf0f1;
+  padding-top: 20px;
 }
 
 .taskMeta {
-  /* TODO: Implement task metadata styles */
+  margin-bottom: 16px;
 }
 
 .createdAt {
-  /* TODO: Implement created date styles */
+  font-size: 14px;
+  color: #7f8c8d;
+  font-style: italic;
 }
 
 .taskControls {
-  /* TODO: Implement task controls styles */
+  display: flex;
+  justify-content: center;
 }
 
 .checkboxContainer {
-  /* TODO: Implement checkbox container styles */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2c3e50;
+  gap: 12px;
 }
 
 .checkbox {
-  /* TODO: Implement checkbox input styles */
+  display: none;
 }
 
 .checkmark {
-  /* TODO: Implement custom checkbox styles */
+  width: 24px;
+  height: 24px;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxContainer:hover .checkmark {
+  border-color: #3498db;
+  background: rgba(52, 152, 219, 0.05);
+}
+
+.checkbox:checked + .checkmark {
+  background: #27ae60;
+  border-color: #27ae60;
+}
+
+.checkbox:checked + .checkmark::after {
+  content: '✓';
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .checkboxLabel {
-  /* TODO: Implement checkbox label styles */
+  transition: color 0.3s ease;
 }
 
+.checkbox:checked ~ .checkboxLabel {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+/* Modal Styles */
 .modal {
-  /* TODO: Implement modal overlay styles */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 .modalContent {
-  /* TODO: Implement modal content styles */
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent h4 {
+  margin: 0 0 16px 0;
+  color: #2c3e50;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.modalContent p {
+  margin: 0 0 24px 0;
+  color: #5a6c7d;
+  line-height: 1.6;
+  font-size: 16px;
 }
 
 .modalActions {
-  /* TODO: Implement modal actions styles */
+  display: flex;
+  gap: 16px;
+  justify-content: center;
 }
 
 .cancelButton,
 .confirmDeleteButton {
-  /* TODO: Implement modal button styles */
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  min-width: 100px;
+}
+
+.cancelButton {
+  background: #6c757d;
+  color: white;
+}
+
+.cancelButton:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.confirmDeleteButton {
+  background: #e74c3c;
+  color: white;
+}
+
+.confirmDeleteButton:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .taskItem {
+    margin: 12px 0;
+    padding: 20px;
+    min-height: 180px;
+  }
+  
+  .taskTitle {
+    font-size: 20px;
+  }
+  
+  .taskDescription {
+    font-size: 15px;
+  }
+  
+  .modalContent {
+    padding: 24px;
+    margin: 20px;
+  }
 }

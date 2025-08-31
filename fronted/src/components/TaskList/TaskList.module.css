@@ -1,64 +1,234 @@
-/* TODO: Add task list and carousel styles */
+/* Task List Styles */
 .taskListContainer {
-  /* TODO: Implement task list container styles */
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+  margin-bottom: 30px;
 }
 
 .carouselWrapper {
-  /* TODO: Implement carousel wrapper styles */
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
 }
 
 .carousel {
-  /* TODO: Implement carousel container styles with scrolling */
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .carouselItem {
-  /* TODO: Implement individual carousel item styles */
+  flex: 0 0 auto;
+  width: 350px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.carouselItem:hover {
+  transform: scale(1.02);
 }
 
 .carouselButton {
-  /* TODO: Implement navigation button styles */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(52, 152, 219, 0.9);
+  color: white;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.carouselButton:hover {
+  background: rgba(52, 152, 219, 1);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+}
+
+.carouselButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: translateY(-50%);
 }
 
 .prevButton {
-  /* TODO: Implement previous button positioning */
+  left: 20px;
 }
 
 .nextButton {
-  /* TODO: Implement next button positioning */
+  right: 20px;
 }
 
 .indicators {
-  /* TODO: Implement carousel indicators styles */
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 .indicator {
-  /* TODO: Implement individual indicator styles */
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #bdc3c7;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.indicator:hover {
+  background: #95a5a6;
+  transform: scale(1.2);
 }
 
 .indicator.active {
-  /* TODO: Implement active indicator styles */
+  background: #3498db;
+  border-color: #2980b9;
+  transform: scale(1.3);
 }
 
+/* Loading States */
 .loadingContainer {
-  /* TODO: Implement loading container styles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .spinner {
-  /* TODO: Implement loading spinner styles */
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e8e8e8;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingContainer p {
+  color: #7f8c8d;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Error States */
 .errorContainer {
-  /* TODO: Implement error container styles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background: #fdf2f2;
+  border-radius: 16px;
+  border: 2px solid #fecaca;
 }
 
 .errorMessage {
-  /* TODO: Implement error message styles */
+  color: #991b1b;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
 }
 
+.errorContainer p {
+  color: #7f8c8d;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Empty States */
 .emptyContainer {
-  /* TODO: Implement empty state container styles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 16px;
+  border: 2px dashed #dee2e6;
 }
 
 .emptyMessage {
-  /* TODO: Implement empty state message styles */
+  color: #6c757d;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.emptyContainer p {
+  color: #7f8c8d;
+  font-size: 16px;
+  margin: 0;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .taskListContainer {
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .carousel {
+    gap: 20px;
+    padding: 16px;
+  }
+  
+  .carouselItem {
+    width: 300px;
+  }
+  
+  .carouselButton {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .prevButton {
+    left: 10px;
+  }
+  
+  .nextButton {
+    right: 10px;
+  }
+  
+  .loadingContainer,
+  .errorContainer,
+  .emptyContainer {
+    padding: 40px 20px;
+  }
+  
+  .emptyMessage {
+    font-size: 20px;
+  }
 }

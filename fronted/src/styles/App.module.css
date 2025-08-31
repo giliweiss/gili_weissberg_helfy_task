@@ -1,8 +1,26 @@
-/* TODO: Add basic app layout styles */
+/* App Layout Styles */
 .app {
-  /* TODO: Implement app container styles */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
 }
 
 .main {
-  /* TODO: Implement main content area styles */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 0 12px;
+  }
 }
