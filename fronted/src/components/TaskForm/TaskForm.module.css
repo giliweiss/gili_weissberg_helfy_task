@@ -1,47 +1,178 @@
-/* TODO: Add task form styles */
+/* Task Form Styles */
 .taskFormContainer {
-  /* TODO: Implement form container styles */
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .taskForm {
-  /* TODO: Implement form layout styles */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .formTitle {
-  /* TODO: Implement form title styles */
+  margin: 0 0 24px 0;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 16px;
 }
 
 .formGroup {
-  /* TODO: Implement form group styles */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .label {
-  /* TODO: Implement form label styles */
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
 .input,
 .textarea,
 .select {
-  /* TODO: Implement form input styles */
+  padding: 16px 20px;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: white;
+  color: #2c3e50;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+  transform: translateY(-1px);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 16px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: 48px;
+  appearance: none;
 }
 
 .inputError {
-  /* TODO: Implement input error state styles */
+  border-color: #e74c3c;
+  background-color: #fdf2f2;
+}
+
+.inputError:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
 }
 
 .fieldError {
-  /* TODO: Implement field error message styles */
+  color: #e74c3c;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 4px;
+  padding-left: 4px;
 }
 
 .errorMessage {
-  /* TODO: Implement general error message styles */
+  background: #fdf2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
 }
 
 .formActions {
-  /* TODO: Implement form actions container styles */
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 24px;
+  border-top: 1px solid #e8e8e8;
 }
 
 .cancelButton,
 .submitButton {
-  /* TODO: Implement form button styles */
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.cancelButton {
+  background: #6c757d;
+  color: white;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2980b9, #1f5f8b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.cancelButton:disabled,
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .taskFormContainer {
+    padding: 24px;
+    margin: 16px;
+  }
+  
+  .formTitle {
+    font-size: 24px;
+  }
+  
+  .formActions {
+    flex-direction: column;
+  }
+  
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+  }
 }

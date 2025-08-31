@@ -37,7 +37,8 @@ const TaskList = () => {
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
-        {/* TODO: Add loading spinner and text */}
+        <div className={styles.spinner}></div>
+        <p>Loading tasks...</p>
       </div>
     );
   }
@@ -45,7 +46,7 @@ const TaskList = () => {
   if (error) {
     return (
       <div className={styles.errorContainer}>
-        {/* TODO: Display error message */}
+        <p className={styles.errorMessage}>Error: {error}</p>
       </div>
     );
   }
@@ -53,16 +54,18 @@ const TaskList = () => {
   if (filteredTasks.length === 0) {
     return (
       <div className={styles.emptyContainer}>
-        {/* TODO: Display empty state message */}
+        <p className={styles.emptyMessage}>No tasks found. Create your first task!</p>
       </div>
     );
   }
 
   return (
     <div className={styles.taskListContainer}>
-      {/* TODO: Implement carousel wrapper with navigation buttons */}
-      {/* TODO: Implement carousel container with task items */}
-      {/* TODO: Implement indicators for carousel navigation */}
+      <div className={styles.tasksGrid}>
+        {filteredTasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
+      </div>
     </div>
   );
 };

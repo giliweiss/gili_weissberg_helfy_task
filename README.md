@@ -27,31 +27,6 @@ A simple Task Manager application built with React frontend and Express.js backe
 - **CSS Modules** - Scoped styling
 - **Vite** - Build tool and development server
 
-## Project Structure
-
-```
-task-manager/
-├── client/                 # Frontend React application
-│   ├── public/
-│   ├── src/
-│   │   ├── components/     # React components
-│   │   │   ├── TaskList/   # Endless carousel component
-│   │   │   ├── TaskItem/   # Individual task display
-│   │   │   ├── TaskForm/   # Create/edit task form
-│   │   │   └── TaskFilter/ # Filter tasks component
-│   │   ├── context/        # React context for state management
-│   │   ├── pages/          # Page components
-│   │   ├── services/       # API service functions
-│   │   └── styles/         # Global styles
-│   └── package.json
-├── server/                 # Backend Express application
-│   ├── controllers/        # Route controllers
-│   ├── data/              # In-memory data storage
-│   ├── routes/            # API routes
-│   └── package.json
-├── .gitignore
-└── README.md
-```
 
 ## API Endpoints
 
@@ -88,7 +63,7 @@ task-manager/
 ### Frontend Setup
 1. Navigate to the client directory:
    ```bash
-   cd client
+   cd Frontend
    ```
 
 2. Install dependencies:

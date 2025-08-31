@@ -13,36 +13,51 @@ const api = axios.create({
 export const taskApi = {
   // Get all tasks
   getTasks: async () => {
-    // TODO: Make GET request to /tasks endpoint
-    // TODO: Return response data
-    // TODO: Handle errors appropriately
+    try {
+      const response = await api.get('/tasks');
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to fetch tasks');
+    }
   },
 
   // Create a new task
   createTask: async (taskData) => {
-    // TODO: Make POST request to /tasks endpoint with taskData
-    // TODO: Return created task data
-    // TODO: Handle errors appropriately
+    try {
+      const response = await api.post('/tasks', taskData);
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to create task');
+    }
   },
 
   // Update a task
   updateTask: async (id, updates) => {
-    // TODO: Make PUT request to /tasks/:id endpoint with updates
-    // TODO: Return updated task data
-    // TODO: Handle errors appropriately
+    try {
+      const response = await api.put(`/tasks/${id}`, updates);
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to update task');
+    }
   },
 
   // Delete a task
   deleteTask: async (id) => {
-    // TODO: Make DELETE request to /tasks/:id endpoint
-    // TODO: Handle errors appropriately
+    try {
+      await api.delete(`/tasks/${id}`);
+    } catch (error) {
+      throw new Error('Failed to delete task');
+    }
   },
 
   // Toggle task completion
   toggleTask: async (id) => {
-    // TODO: Make PATCH request to /tasks/:id/toggle endpoint
-    // TODO: Return updated task data
-    // TODO: Handle errors appropriately
+    try {
+      const response = await api.patch(`/tasks/${id}/toggle`);
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to toggle task');
+    }
   },
 };
 

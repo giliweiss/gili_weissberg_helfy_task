@@ -25,9 +25,32 @@ const initialState = {
 
 // Reducer function
 const taskReducer = (state, action) => {
-  // TODO: Implement reducer logic for each action type
-  // TODO: Handle SET_LOADING, SET_ERROR, SET_TASKS, ADD_TASK, UPDATE_TASK, DELETE_TASK, SET_FILTER
-  return state;
+  switch (action.type) {
+    case TASK_ACTIONS.SET_LOADING:
+      return { ...state, loading: action.payload };
+    case TASK_ACTIONS.SET_ERROR:
+      return { ...state, error: action.payload, loading: false };
+    case TASK_ACTIONS.SET_TASKS:
+      return { ...state, tasks: action.payload, loading: false, error: null };
+    case TASK_ACTIONS.ADD_TASK:
+      return { ...state, tasks: [...state.tasks, action.payload] };
+    case TASK_ACTIONS.UPDATE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.map(task =>
+          task.id === action.payload.id ? action.payload : task
+        ),
+      };
+    case TASK_ACTIONS.DELETE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.filter(task => task.id !== action.payload),
+      };
+    case TASK_ACTIONS.SET_FILTER:
+      return { ...state, filter: action.payload };
+    default:
+      return state;
+  }
 };
 
 // Context provider component
@@ -36,45 +59,76 @@ export const TaskProvider = ({ children }) => {
 
   // Load tasks on component mount
   useEffect(() => {
-    // TODO: Call loadTasks on component mount
+    loadTasks();
   }, []);
 
   const loadTasks = async () => {
-    // TODO: Set loading to true
-    // TODO: Fetch tasks from API
-    // TODO: Dispatch SET_TASKS action on success
-    // TODO: Dispatch SET_ERROR action on failure
+    dispatch({ type: TASK_ACTIONS.SET_LOADING, payload: true });
+    try {
+      const tasks = await taskApi.getTasks();
+      dispatch({ type: TASK_ACTIONS.SET_TASKS, payload: tasks });
+    } catch (error) {
+      dispatch({ type: TASK_ACTIONS.SET_ERROR, payload: error.message });
+    }
   };
 
   const createTask = async (taskData) => {
-    // TODO: Call API to create task
-    // TODO: Dispatch ADD_TASK action on success
-    // TODO: Handle errors appropriately
+    try {
+      const newTask = await taskApi.createTask(taskData);
+      dispatch({ type: TASK_ACTIONS.ADD_TASK, payload: newTask });
+      return newTask;
+    } catch (error) {
+      dispatch({ type: TASK_ACTIONS.SET_ERROR, payload: error.message });
+      throw error;
+    }
   };
 
   const updateTask = async (id, updates) => {
-    // TODO: Call API to update task
-    // TODO: Dispatch UPDATE_TASK action on success
-    // TODO: Handle errors appropriately
+    try {
+      const updatedTask = await taskApi.updateTask(id, updates);
+      dispatch({ type: TASK_ACTIONS.UPDATE_TASK, payload: updatedTask });
+      return updatedTask;
+    } catch (error) {
+      dispatch({ type: TASK_ACTIONS.SET_ERROR, payload: error.message });
+      throw error;
+    }
   };
 
   const deleteTask = async (id) => {
-    // TODO: Call API to delete task
-    // TODO: Dispatch DELETE_TASK action on success
-    // TODO: Handle errors appropriately
+    try {
+      await taskApi.deleteTask(id);
+      dispatch({ type: TASK_ACTIONS.DELETE_TASK, payload: id });
+    } catch (error) {
+      dispatch({ type: TASK_ACTIONS.SET_ERROR, payload: error.message });
+      throw error;
+    }
   };
 
   const toggleTask = async (id) => {
-    // TODO: Call API to toggle task completion
-    // TODO: Dispatch UPDATE_TASK action on success
-    // TODO: Handle errors appropriately
+    try {
+      const updatedTask = await taskApi.toggleTask(id);
+      dispatch({ type: TASK_ACTIONS.UPDATE_TASK, payload: updatedTask });
+      return updatedTask;
+    } catch (error) {
+      dispatch({ type: TASK_ACTIONS.SET_ERROR, payload: error.message });
+      throw error;
+    }
   };
 
   const setFilter = (filter) => {
-    // TODO: Dispatch SET_FILTER action
+    dispatch({ type: TASK_ACTIONS.SET_FILTER, payload: filter });
   };
 
-  const filteredTasks = []; // TODO: Filter tasks based on current filter
+  const filteredTasks = state.tasks.filter(task => {
+    switch (state.filter) {
+      case 'completed':
+        return task.completed;
+      case 'pending':
+        return !task.completed;
+      default:
+        return true;
+    }
+  });
 
   const value = {
     ...state,
