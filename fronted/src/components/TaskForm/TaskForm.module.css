@@ -1,0 +1,47 @@
+/* TODO: Add task form styles */
+.taskFormContainer {
+  /* TODO: Implement form container styles */
+}
+
+.taskForm {
+  /* TODO: Implement form layout styles */
+}
+
+.formTitle {
+  /* TODO: Implement form title styles */
+}
+
+.formGroup {
+  /* TODO: Implement form group styles */
+}
+
+.label {
+  /* TODO: Implement form label styles */
+}
+
+.input,
+.textarea,
+.select {
+  /* TODO: Implement form input styles */
+}
+
+.inputError {
+  /* TODO: Implement input error state styles */
+}
+
+.fieldError {
+  /* TODO: Implement field error message styles */
+}
+
+.errorMessage {
+  /* TODO: Implement general error message styles */
+}
+
+.formActions {
+  /* TODO: Implement form actions container styles */
+}
+
+.cancelButton,
+.submitButton {
+  /* TODO: Implement form button styles */
+}

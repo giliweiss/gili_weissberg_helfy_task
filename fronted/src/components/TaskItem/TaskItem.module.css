@@ -1,0 +1,98 @@
+/* TODO: Add task item styles */
+.taskItem {
+  /* TODO: Implement task item container styles */
+}
+
+.taskItem.completed {
+  /* TODO: Implement completed task styles */
+}
+
+.taskHeader {
+  /* TODO: Implement task header styles */
+}
+
+.priorityBadge {
+  /* TODO: Implement priority badge base styles */
+}
+
+.priorityHigh {
+  /* TODO: Implement high priority styles */
+}
+
+.priorityMedium {
+  /* TODO: Implement medium priority styles */
+}
+
+.priorityLow {
+  /* TODO: Implement low priority styles */
+}
+
+.taskActions {
+  /* TODO: Implement task actions container styles */
+}
+
+.editButton,
+.deleteButton {
+  /* TODO: Implement action button styles */
+}
+
+.taskContent {
+  /* TODO: Implement task content area styles */
+}
+
+.taskTitle {
+  /* TODO: Implement task title styles */
+}
+
+.taskDescription {
+  /* TODO: Implement task description styles */
+}
+
+.taskFooter {
+  /* TODO: Implement task footer styles */
+}
+
+.taskMeta {
+  /* TODO: Implement task metadata styles */
+}
+
+.createdAt {
+  /* TODO: Implement created date styles */
+}
+
+.taskControls {
+  /* TODO: Implement task controls styles */
+}
+
+.checkboxContainer {
+  /* TODO: Implement checkbox container styles */
+}
+
+.checkbox {
+  /* TODO: Implement checkbox input styles */
+}
+
+.checkmark {
+  /* TODO: Implement custom checkbox styles */
+}
+
+.checkboxLabel {
+  /* TODO: Implement checkbox label styles */
+}
+
+.modal {
+  /* TODO: Implement modal overlay styles */
+}
+
+.modalContent {
+  /* TODO: Implement modal content styles */
+}
+
+.modalActions {
+  /* TODO: Implement modal actions styles */
+}
+
+.cancelButton,
+.confirmDeleteButton {
+  /* TODO: Implement modal button styles */
+}

@@ -1,0 +1,28 @@
+/* TODO: Add task filter styles */
+.filterContainer {
+  /* TODO: Implement filter container styles */
+}
+
+.filterTitle {
+  /* TODO: Implement filter title styles */
+}
+
+.filterButtons {
+  /* TODO: Implement filter buttons container styles */
+}
+
+.filterButton {
+  /* TODO: Implement filter button styles */
+}
+
+.filterButton.active {
+  /* TODO: Implement active filter button styles */
+}
+
+.filterLabel {
+  /* TODO: Implement filter label styles */
+}
+
+.filterCount {
+  /* TODO: Implement filter count badge styles */
+}

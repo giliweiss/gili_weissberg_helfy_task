@@ -1,77 +1,157 @@
-File Structure
+# Task Manager App
 
-What to Submit
-1. GitHub Repository: Create a public repository with the name format: firstname_lastname_helfy_task
-(e.g., avi_cohen_helfy_task )
-2. Submit the GitHub repository link
-3. Complete source code for both frontend and backend in the repository
-4. README.md in the repository root with:
-Setup and installation instructions
+A simple Task Manager application built with React frontend and Express.js backend.
+
+## Features
+
+- **CRUD Operations**: Create, read, update, and delete tasks
+- **Task Status**: Toggle task completion status
+- **Priority Levels**: Set task priority (Low, Medium, High)
+- **Filtering**: Filter tasks by completion status (All, Completed, Pending)
+- **Endless Carousel**: Display tasks in a smooth infinite scrolling carousel
+- **Responsive Design**: Mobile-friendly interface
+- **Real-time Updates**: Instant updates across the application
+
+## Tech Stack
+
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **CORS** - Cross-origin resource sharing
+- **In-memory storage** - Simple array-based data storage
+
+### Frontend
+- **React** - Frontend framework
+- **React Router** - Client-side routing
+- **Axios** - HTTP client for API requests
+- **CSS Modules** - Scoped styling
+- **Vite** - Build tool and development server
+
+## Project Structure
+
+```
 task-manager/
-├── backend/
-│ ├── package.json
-│ ├── server.js
-│ ├── routes/
-│ └── middleware/
-├── frontend/
-│ ├── package.json
-│ ├── public/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── services/
-│ │ ├── styles/
-│ │ └── App.js
+├── client/                 # Frontend React application
+│   ├── public/
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   │   ├── TaskList/   # Endless carousel component
+│   │   │   ├── TaskItem/   # Individual task display
+│   │   │   ├── TaskForm/   # Create/edit task form
+│   │   │   └── TaskFilter/ # Filter tasks component
+│   │   ├── context/        # React context for state management
+│   │   ├── pages/          # Page components
+│   │   ├── services/       # API service functions
+│   │   └── styles/         # Global styles
+│   └── package.json
+├── server/                 # Backend Express application
+│   ├── controllers/        # Route controllers
+│   ├── data/              # In-memory data storage
+│   ├── routes/            # API routes
+│   └── package.json
 ├── .gitignore
 └── README.md
+```
 
+## API Endpoints
 
-## Installation
+- `GET /api/tasks` - Get all tasks
+- `POST /api/tasks` - Create a new task
+- `PUT /api/tasks/:id` - Update a task
+- `DELETE /api/tasks/:id` - Delete a task
+- `PATCH /api/tasks/:id/toggle` - Toggle task completion status
+- `GET /api/health` - Health check endpoint
+
+## Setup Instructions
 
 ### Prerequisites
+- Node.js (v14 or higher)
+- npm
 
-- [Node.js](https://nodejs.org/en) 
-  - Version 20.x or higher required (latest LTS recommended)
-- `npm` (will be typically installed automatically when you install Node.js above)
-  -  Version 10.x or higher required (get the latest by running `npm install -g npm@latest --no-optional`)
+### Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd beckend
+   ```
 
-### Server Setup
-1. Navigate to the server directory: `cd server`
-1. Install server dependencies: `npm install`
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Client Setup
-1. Navigate to the client directory: `cd ../client`
-1. Install client dependencies: `npm install`
+3. Start the server:
+   ```bash
+   npm start
+   ```
+   The server will run on port 4000 by default.
 
-## Configuration
+### Frontend Setup
+1. Navigate to the client directory:
+   ```bash
+   cd client
+   ```
 
-### Environment Variables
-Environment variables are used to configure your application without hardcoding sensitive information into your code. For this project, you need to set up the following environment variables in `.env` files located both in the `server` directory and `client` directory.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-#### Configure the Backend (server)
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   The frontend will run on port 3000.
 
-Make a copy of the `.env.example` file under the `server` folder and name it `.env`. This file contains the following environment variables (you don't need to touch them at this point):
-   - `CLIENT_URL` - this should match the URL of the client, which is what you'll see at the address bar of your browser after running your client (via `npm start`).
-   - `PORT` - This variable defines the port on which your Express server will run. By default, this is set to `5000`, but you can change it to any available port number.
+### Configuration
+The backend uses sensible defaults:
+- Server runs on port 4000 (can be overridden with `PORT` environment variable)
+- CORS allows frontend connection from localhost:3000
 
-#### Configure the Frontend (client)
+## Task Model
 
-Make a copy of the `.env.example` file under the `client` folder and name it `.env`. 
-This file contains the following environment variable (you don't need to touch them at this point):
+```javascript
+{
+  id: number,
+  title: string,
+  description: string,
+  completed: boolean,
+  createdAt: Date,
+  priority: 'low' | 'medium' | 'high'
+}
+```
 
-* `VITE_SERVER_API_URL`: This variable contains the URL of your backend API. It tells your client where to send requests to interact with the server. By default, this should be set to http://localhost:5000/, but you should change it to match your server's actual URL if different (where 5000 is the `PORT` you defined in the server `.env` file above).
+## Features Implementation
 
-## Usage
+### Endless Carousel
+- Smooth infinite scrolling of tasks
+- Auto-scroll functionality
+- Navigation arrows and indicators
+- Responsive design with touch support
 
-This section explains how to use the application once it’s set up and configured. Follow these steps to interact with both the client and server components of the application.
+### Task Management
+- Create tasks with title, description, and priority
+- Edit existing tasks inline or in modal
+- Delete tasks with confirmation dialog
+- Toggle completion status with visual feedback
 
-### Start the Server
-1. Open a terminal in the root folder of the cloned repository, and navigate to the `server` directory: `cd server`
-1. Start the Express server in development mode: `npm run dev`
-   - By default, the server will run on `http://localhost:5000` (see configuration section above)
+### Filtering and Search
+- Filter by completion status
+- Visual indication of priority levels
+- Real-time filtering updates
 
-### Run the Client
-1. Open a **new** terminal in the root folder of the cloned repository, and navigate to the `client` directory: `cd client`
+## Scripts
 
-2. Run the Frontend Client: `npm run dev`
-   - A new browser window with the client application should open (if you close the tab, you can return to it by navigating to http://localhost:3000/ by default)
+### Backend (server/)
+- `npm start` - Start the server with linting
+- `npm run dev` - Start with nodemon for development
+- `npm run lint` - Run ESLint
 
+### Frontend (client/)
+- `npm run dev` - Start development server with linting
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## License
+
+This project is licensed under the ISC License.backend
